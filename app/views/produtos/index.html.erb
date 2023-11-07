@@ -10,9 +10,9 @@
             <th>Quantidade</th>
         </tr>
     </thead>
-
+<!-- @ no início dos métodos dominam-se como variáveis globais/-->
     <tbody>
-        <% @todos.each do |produto| %>
+        <% @produtos_por_nome.each do |produto| %>
         <tr>    
             <td><%= produto.nome %></td>
             <td><%= produto.descricao %></td>
@@ -34,7 +34,7 @@
     </thead>
 
     <tbody>
-        <% @todos.each do |produto| %>
+        <% @produtos_por_preco.each do |produto| %>
         <tr>    
             <td><%= produto.nome %></td>
             <td><%= produto.descricao %></td>
