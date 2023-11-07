@@ -12,7 +12,7 @@
     </thead>
 
     <tbody>
-        <% todos = Produto.all %>
+        <% todos = Produto.order :nome %>
         <% todos.each do |produto| %>
         <tr>    
             <td><%= produto.nome %></td>
