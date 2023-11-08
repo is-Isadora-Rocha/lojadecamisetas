@@ -5,4 +5,16 @@ class ProdutosController < ApplicationController
         @produtos_por_preco = Produto.order(:preco).limit 2
         # limit 2 = são os 2 preços de produtos mais baratos
     end
+
+    def create 
+        nome = params["nome"]
+        descricao = params["descricao"]
+        quantidade = params["quantidade"]
+        preco = params["preco"]
+
+        puts nome
+        puts descricao
+        puts quantidade
+        puts preco
+    end
 end

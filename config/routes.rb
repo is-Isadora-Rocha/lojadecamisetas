@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  # get "produtos" => "produtos#index"
+  post "/produtos" => "produtos#create"
+  get "/produtos/new" => "produtos#new"
   root "produtos#index"
-  # "produtos" é o endereço principal no root/raiz
 
 end
