@@ -7,14 +7,7 @@ class ProdutosController < ApplicationController
     end
 
     def create 
-        nome = params["nome"]
-        descricao = params["descricao"]
-        quantidade = params["quantidade"]
-        preco = params["preco"]
-
-        puts nome
-        puts descricao
-        puts quantidade
-        puts preco
+        valores = params.require(:produto).permit!
+        produto = Produto.create valores
     end
 end
