@@ -4,18 +4,18 @@
         <%= form_for Produto.new do |f|%>
 
         Nome 
-        <input type="text" name="produto[nome]"/><br/>
+        <%= f.text_field :nome%><br/>
 
         Descrição 
-        <textarea name="produto[descricao]"></textarea><br/>
+        <%= f.text_area :descricao %><br/>
 
         Quantidade 
-        <input type="number" name="produto[quantidade]"/><br/>
+        <%= f.number_field :quantidade%><br/>
         
         Preço
-        <input type="number" name="produto[preco]" step="0.01"/><br/>
+        <%= f.number_field :preco%><br/>
 
-        <button type="submit">Criar</button>
+        <%= f.submit%>
 
     <% end %>
 
