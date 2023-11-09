@@ -4,18 +4,18 @@
         <%= form_for Produto.new do |f|%>
 
         Nome 
-        <%= f.text_field :nome%><br/>
+        <%= f.text_field :nome, class: "form-control" %><br/>
 
         Descrição 
-        <%= f.text_area :descricao %><br/>
+        <%= f.text_area :descricao, class: "form-control", rows: 4 %><br/>
 
         Quantidade 
-        <%= f.number_field :quantidade%><br/>
+        <%= f.number_field :quantidade, step: 1, class: "form-control" %><br/>
         
         Preço
-        <%= f.number_field :preco%><br/>
+        <%= f.number_field :preco, class: "form-control" %><br/>
 
-        <%= f.submit%>
+        <%= f.submit "Criar produto", class: "btn btn-primary" %>
 
     <% end %>
 
