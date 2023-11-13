@@ -3,18 +3,26 @@ class ProdutosController < ApplicationController
         # limit 5 = são os 5 nomes de produtos mais baratos
         @produtos_por_nome = Produto.order(:nome).limit 5
         @produtos_por_preco = Produto.order(:preco).limit 2
-        # limit 2 = são os 2 preços de produtos mais baratos
+    end
+
+    def new
+        @produto = Produto.new 
     end
 
     def busca
         @nome_a_buscar = params[:nome]
-        @produtos=  Produto.where "nome like ?", "%#{@nome_a_buscar}%"
+        @produtos =  Produto.where "nome like ?", "%#{@nome_a_buscar}%"
     end
 
     def create 
         valores = params.require(:produto).permit :nome, :preco, :descricao, :quantidade
-        produto = Produto.create valores
-        redirect_to root_url
+        @produto = Produto.new valores
+        if @produto.save
+            redirect_to root_url
+        else
+            render :new 
+            #renderização do novo produto
+        end
     end
 
     def destroy 
