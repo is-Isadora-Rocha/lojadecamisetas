@@ -6,6 +6,11 @@ class ProdutosController < ApplicationController
         # limit 2 = são os 2 preços de produtos mais baratos
     end
 
+    def busca
+        @nome_a_buscar = params[:nome]
+        @produtos=  Produto.where "nome like ?", "%#{@nome_a_buscar}%"
+    end
+
     def create 
         valores = params.require(:produto).permit :nome, :preco, :descricao, :quantidade
         produto = Produto.create valores
