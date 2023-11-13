@@ -18,7 +18,10 @@
                 <td><%= produto.preco %></td>
                 <td><%= produto.quantidade %></td>
                 <td>
-                    <%= link_to "Remover", produto, method: :delete %>
+                    <%= button_to "Remover", produto, 
+                    method: :delete, 
+                    class: "btn btn-danger",
+                    data: { confirm: "Tem certeza que deseja remover #{produto.nome}?"}%>
                 </td>
             </tr>
             <% end %>
@@ -47,3 +50,7 @@
             <% end %>
         </tbody>
     </table>
+
+<%= link_to "Criar novo produto", produtos_new_path %>
+<!-- new_path = "/nome/nome"
+     new_url> = "localhost:3000/nome/nome"
