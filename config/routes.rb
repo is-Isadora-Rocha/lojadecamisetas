@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :departamentos
 =begin
  * requisições unitárias: 
   sem o uso do resources => 
