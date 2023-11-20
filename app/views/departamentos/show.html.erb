@@ -6,5 +6,6 @@
   <%= link_to "Edit this departamento", edit_departamento_path(@departamento) %> |
   <%= link_to "Back to departamentos", departamentos_path %>
 
-  <%= button_to "Destroy this departamento", @departamento, method: :delete %>
+  <%= button_to "Destroy this departamento", @departamento, method: :delete, data:
+  { confirm: 'Are you sure?'} %>
 </div>
