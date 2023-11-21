@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 =end
 
 # resources: gera todas as requisições
-  resources :produtos, only: [:new, :create, :destroy]
+  resources :produtos, only: [:new, :create, :destroy, :edit, :update]
   get "/produtos/busca" => "produtos#busca", as: :busca_produto
   root "produtos#index"
 

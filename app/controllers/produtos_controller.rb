@@ -15,13 +15,34 @@ class ProdutosController < ApplicationController
         @produtos =  Produto.where "nome like ?", "%#{@nome_a_buscar}%"
     end
 
+    def edit
+        id = params[:id]
+        @produto = Produto.find(id)
+        @departamentos = Departamento.all
+        render :new 
+    end
+
+    def update
+        id = params[:id]
+        @produto = Produto.find(id)
+        valores = params.require(:produto).permit :nome, :preco, :descricao, :quantidade, :departamento_id
+        if @produto.update valores
+            flash[:notice] = "Produto atualizao com sucesso"
+            redirect_to root_url
+        else
+            @departamentos = Departamento.all
+            render :new 
+        end
+    end
+
     def create 
-        valores = params.require(:produto).permit :nome, :preco, :descricao, :quantidade
+        valores = params.require(:produto).permit :nome, :preco, :descricao, :quantidade, :departamento_id
         @produto = Produto.new valores
         if @produto.save
             flash[:notice] = "Produto salvo com sucesso"
             redirect_to root_url
         else
+            @departamentos = Departamento.all
             render :new 
             #renderização do novo produto
         end
